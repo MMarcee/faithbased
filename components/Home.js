@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, View, Modal, Text, 
   Button, ImageBackground } from 'react-native';
 import { Card } from 'react-native-elements';
+import { useFonts } from 'expo-font';
+
+function ModalFont() {
+  const [loaded ] = useFonts({
+    bahnschrift: require('../assets/bahnschrift.ttf'), //https://docs.expo.io/versions/v40.0.0/sdk/font/
+    });
+  if (!loaded) {
+    return null;
+  }
+}
 
 class Home extends Component {
   constructor() {
@@ -43,9 +53,9 @@ class Home extends Component {
                           borderRadius: 10,
                           flex: 1,}}
                           >
-                        <Text style= {{ fontSize: 16, textAlign: "center", lineHeight: 25, }}>If you consider yourself an elite in this physical world;</Text>
-                        <Text style= {{ fontSize: 16, textAlign: "center", lineHeight: 25, }}>wouldn't you want to be one in the spiritual one as well?</Text>
-                        <Text style= {{ fontSize: 16, textAlign: "center", lineHeight: 25, }}>There, your condition will be ETERNAL!</Text>
+                        <Text style={[{ModalFont}, {fontSize:16}, {textAlign: 'center'}, {lineHeight: 25}]}>If you consider yourself an elite in this physical world;</Text>
+                        <Text style={[{ModalFont}, {fontSize:16}, {textAlign: 'center'}, {lineHeight: 25}]}>wouldn't you want to be one in the spiritual one as well?</Text>
+                        <Text style={[{ModalFont}, {fontSize:16}, {textAlign: 'center'}, {lineHeight: 25}]}>There, your condition will be ETERNAL!</Text>
                         <Button 
                           title="Learn More" 
                           fontWeight="bold"
@@ -57,6 +67,7 @@ class Home extends Component {
                     </View>
                 </Modal>
                   <Text style={styles.title1}>The Rich Man and Lazarus</Text>
+                  <Text style={styles.title1}>Luc 16:19-31</Text>
                   <Text style={styles.paragraph}>
                     There was a rich man who was dressed in purple and fine linen and lived in luxury every day. 
                     At his gate was laid a beggar named Lazarus, covered with sores and longing to eat what 
